@@ -29,4 +29,15 @@ router.get('/api', async function (req, res, next) {
   })
 });
 
+
+router.get('/lastupdate/:mac_id', async function (req, res, next) {
+  const data = await momo.get_lastupdate(req.params.mac_id);
+  // console.log(data);
+  res.status(200).json({
+    success: true,
+    data: data?.result,
+  })
+});
+
+
 module.exports = router;

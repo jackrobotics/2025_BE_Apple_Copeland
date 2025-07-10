@@ -107,5 +107,23 @@ async function get_energy_month(mac_id) {
     };
 }
 
+async function get_lastupdate(mac_id) {
+    // const list = [
+    //     { id: 1, mac_id: "C4:D8:D5:29:50:28", api_key: "BrKXa2GrEAvQA8FGxpf1eXulC4ptLOmgRFSoe0nShBDJcdH67H" },
+    //     { id: 2, mac_id: "3C:61:05:DB:AD:B8", api_key: "BrKXa2GrEAvQA8FGxpf1eXulC4ptLOmgRFSoe0nShBDJcdH67H" },
+    //     { id: 3, mac_id: "EC:64:C9:F1:26:7D", api_key: "BrKXa2GrEAvQA8FGxpf1eXulC4ptLOmgRFSoe0nShBDJcdH67H" },
+    //     { id: 4, mac_id: "40:91:51:56:60:96", api_key: "BrKXa2GrEAvQA8FGxpf1eXulC4ptLOmgRFSoe0nShBDJcdH67H" },
+    //     { id: 5, mac_id: "40:91:51:56:60:71", api_key: "BrKXa2GrEAvQA8FGxpf1eXulC4ptLOmgRFSoe0nShBDJcdH67H" },
+    //     { id: 6, mac_id: "40:91:51:56:60:CD", api_key: "BrKXa2GrEAvQA8FGxpf1eXulC4ptLOmgRFSoe0nShBDJcdH67H" },
+    //     { id: 7, mac_id: "40:91:51:57:57:0D", api_key: "BrKXa2GrEAvQA8FGxpf1eXulC4ptLOmgRFSoe0nShBDJcdH67H" },
+    //     { id: 8, mac_id: "40:91:51:56:89:59", api_key: "BrKXa2GrEAvQA8FGxpf1eXulC4ptLOmgRFSoe0nShBDJcdH67H" },
+    // ];
+    const api_key = process.env.API_KEY || "BrKXa2GrEAvQA8FGxpf1eXulC4ptLOmgRFSoe0nShBDJcdH67H";
+    const response = await axios({
+        url: `https://space-ui.momospace.net/device_api/device_data/get_lastupdate.php?api_key=${api_key}&mac_id=${mac_id}`,
+    });
+    console.log(response.data);
+    return response.data;
+}
 
-module.exports = { get, get_energy_month };
+module.exports = { get, get_energy_month, get_lastupdate };
